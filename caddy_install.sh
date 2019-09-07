@@ -103,8 +103,10 @@ install_caddy(){
  使用说明：service caddy start | stop | restart | status
  或者使用：/etc/init.d/caddy start | stop | restart | status
  ${Info_font_prefix}[信息]${Font_suffix} Caddy 安装完成！" && echo
- ./caddy -conf /usr/local/caddy/caddy.conf > /dev/null 2>&1 &
- myip=`wget http://ipecho.net/plain -O - -q echo`
+ cd /usr/local/caddy/
+wget -N --no-check-certificate https://raw.githubusercontent.com/qt1280/aria2_perfect_config/master/caddy.conf
+./caddy -conf /usr/local/caddy/caddy.conf > /dev/null 2>&1 &
+myip=`wget http://ipecho.net/plain -O - -q echo`
 echo "网站地址是：http://${myip}"
 }
 uninstall_caddy(){

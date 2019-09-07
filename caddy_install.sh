@@ -103,6 +103,9 @@ install_caddy(){
  使用说明：service caddy start | stop | restart | status
  或者使用：/etc/init.d/caddy start | stop | restart | status
  ${Info_font_prefix}[信息]${Font_suffix} Caddy 安装完成！" && echo
+ ./caddy -conf /usr/local/caddy/caddy.conf > /dev/null 2>&1 &
+ myip=`wget http://ipecho.net/plain -O - -q echo`
+echo "网站地址是：http://${myip}"
 }
 uninstall_caddy(){
 	check_installed_status
@@ -121,7 +124,9 @@ uninstall_caddy(){
 		rm -rf ${caddy_file}
 		rm -rf ${caddy_conf_file}
 		rm -rf /etc/init.d/caddy
-		[[ ! -e ${caddy_file} ]] && echo && echo -e "${Info_font_prefix}[信息]${Font_suffix} Caddy 卸载完成 !" && echo && exit 1
+		[[ ! -e ${caddy_file} ]] && echo && echo -e "${Info_font_prefix}[信息]${Font_suffix} Caddy 卸载完成 !" && echo && 
+		
+		1
 		echo && echo -e "${Error_font_prefix}[错误]${Font_suffix} Caddy 卸载失败 !" && echo
 	else
 		echo && echo "卸载已取消..." && echo

@@ -107,7 +107,7 @@ install_caddy(){
 wget -N --no-check-certificate https://raw.githubusercontent.com/qt1280/aria2_perfect_config/master/caddy.conf
 ./caddy -conf /usr/local/caddy/caddy.conf > /dev/null 2>&1 &
 myip=`wget http://ipecho.net/plain -O - -q echo`
-echo "网站地址是：http://${myip}"
+echo "网站地址是：http://${myip}:2015"
 }
 uninstall_caddy(){
 	check_installed_status

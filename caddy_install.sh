@@ -92,7 +92,8 @@ install_caddy(){
 		read -e -p "(默认: n):" yn
 		[[ -z ${yn} ]] && yn="n"
 		if [[ ${yn} == [Nn] ]]; then
-			echo && echo "已取消..." && exit 1
+			#echo && echo "已取消..." && exit 1
+			echo && echo "已取消..."
 		fi
 	fi
 	Download_caddy
